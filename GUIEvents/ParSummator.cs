@@ -18,10 +18,10 @@ namespace ConsoleEvents
             set;
         }
 
-        private event FinishDelegate? finish;
+        public event FinishDelegate? Finish;
         public event FinishDelegate? Progress;
 
-        public event FinishDelegate? Finish
+        /*public event FinishDelegate? Finish
         {
             add
             {
@@ -31,7 +31,7 @@ namespace ConsoleEvents
             {
                 finish -= value;
             }
-        }
+        }*/
 
         public ParSummator(int maxVal)
         {
