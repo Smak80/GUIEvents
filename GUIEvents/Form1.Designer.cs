@@ -33,6 +33,7 @@
             btnStartSeqSum = new Button();
             lblParSum = new Label();
             label3 = new Label();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // label1
@@ -54,7 +55,7 @@
             // 
             // btnStartSeqSum
             // 
-            btnStartSeqSum.Location = new Point(203, 151);
+            btnStartSeqSum.Location = new Point(12, 151);
             btnStartSeqSum.Name = "btnStartSeqSum";
             btnStartSeqSum.Size = new Size(143, 23);
             btnStartSeqSum.TabIndex = 2;
@@ -79,11 +80,19 @@
             label3.TabIndex = 3;
             label3.Text = "Параллельное суммирование:";
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(161, 151);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(388, 23);
+            progressBar1.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(561, 186);
+            Controls.Add(progressBar1);
             Controls.Add(lblParSum);
             Controls.Add(label3);
             Controls.Add(btnStartSeqSum);
@@ -102,5 +111,6 @@
         private Button btnStartSeqSum;
         private Label lblParSum;
         private Label label3;
+        private ProgressBar progressBar1;
     }
 }

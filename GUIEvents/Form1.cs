@@ -17,14 +17,28 @@ namespace GUIEvents
             if (lblParSum.InvokeRequired)
                 Invoke(ShowResult);
             else
+            {
                 lblParSum.Text = ps.Result.ToString();
+                progressBar1.Value = 100;
+            }
         }
 
+        private void onProgress()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(onProgress);
+            }
+            else
+                progressBar1.Value++;
+        }
         private void btnStartSeqSum_Click(object sender, EventArgs e)
         {
             ss.Sum();
             lblSeqSum.Text = ss.Result.ToString();
             ps.Finish += ShowResult;
+            ps.Progress += onProgress;
+            progressBar1.Value = 0;
             ps.Sum();
         }
     }

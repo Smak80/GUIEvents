@@ -18,7 +18,20 @@ namespace ConsoleEvents
             set;
         }
 
-        public event FinishDelegate? Finish;
+        private event FinishDelegate? finish;
+        public event FinishDelegate? Progress;
+
+        public event FinishDelegate? Finish
+        {
+            add
+            {
+                finish += value;
+            }
+            remove
+            {
+                finish -= value;
+            }
+        }
 
         public ParSummator(int maxVal)
         {
@@ -38,6 +51,11 @@ namespace ConsoleEvents
                     for (int i = 1 + (int)tn; i <= _maxVal; i+=threadCount)
                     {
                         s += i;
+                        if ((int)tn == 0 && ((i - 1 - (int)tn) / threadCount) % (_maxVal / threadCount / 100 + 1) == 0)
+                        {
+                            if (Progress != null) Progress();
+                            Thread.Sleep(1);
+                        }
                     }
 
                     lock (locker)
